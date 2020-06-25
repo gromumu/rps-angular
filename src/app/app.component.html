@@ -1,0 +1,107 @@
+<div class="blocks" *ngIf="isConnexionShow">
+  <div class="block1">
+    <div class="connexion">
+      <div>
+        <h3>CHOOSE YOUR NAME</h3>
+        <input type="text" class="form-control" placeholder="Ex: Mario" #name /><br>
+        <button class="buttonMenu" type="submit" (click)="connexion(name.value)">Continue</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="block2" *ngIf="tabPlayer != 0">
+    <h3> SCORES :</h3>
+    <table>
+      <thead>
+        <tr>
+          <td>
+            <b>Name</b>
+          </td>&nbsp;
+          <td>
+            <b>Score</b>
+          </td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let player of tabPlayer;">
+          <td>
+            {{player.name}}
+          </td>&nbsp;
+          <td>
+            {{player.score | number:'1.0-0':'fr'}}&nbsp;%
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div>
+  <div class="gameBlocks" *ngIf="isGameShow">
+    <div class="block3">
+      <h3>Choose Your Action :</h3>
+      <div class="choices">
+        <div>
+          <button class="icon" (click)="play('rock')">
+            <mat-icon>
+              brightness_1
+            </mat-icon><br>
+            rock
+          </button>
+        </div>
+        <div>
+          <button class="icon" (click)="play('paper')">
+            <mat-icon>
+              pan_tool
+            </mat-icon><br>
+            paper
+          </button>
+        </div>
+        <div>
+          <button class="icon" (click)="play('scissors')">
+            <mat-icon>
+              content_cut
+            </mat-icon><br>
+            scissors
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="block4">
+      <h3>Computer's Play :</h3>
+      <div class="computerResult" *ngIf="computerResult == 'rock'">
+        <mat-icon>
+          brightness_1
+        </mat-icon><br>
+        {{ computerResult }}
+      </div>
+      <div class="computerResult" *ngIf="computerResult == 'paper'">
+        <mat-icon>
+          pan_tool
+        </mat-icon><br>
+        {{ computerResult }}
+      </div>
+      <div class="computerResult" *ngIf="computerResult == 'scissors'">
+        <mat-icon>
+          content_cut
+        </mat-icon><br>
+        {{ computerResult }}
+      </div>
+    </div>
+
+    <div class="block5">
+      <h4>Game Result :</h4>
+      {{ result }}<br>
+
+      <h4>Your Score : <span>{{userScore}}</span></h4>
+      <h4>Computer's Score : <span>{{computerScore}}</span></h4>
+      <h4>Games : <span>{{totalGames}}</span></h4>
+      <h3>Score : <span>{{pourcentageVictory | number:'1.0-0':'fr'}}&nbsp;%</span></h3>
+    </div>
+  </div>
+
+  <div class="quitButton" *ngIf="isGameShow">
+    <button type="submit" class="buttonMenu" (click)="deconnexion()">Quit The Game</button>
+  </div>
+</div>
