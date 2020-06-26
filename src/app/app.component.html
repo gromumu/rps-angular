@@ -37,7 +37,7 @@
 </div>
 
 <div>
-  <div class="gameBlocks" *ngIf="isGameShow">
+  <div class="gameBlocks" *ngIf="!isConnexionShow">
     <div class="block3">
       <h3>Choose Your Action :</h3>
       <div class="choices">
@@ -101,7 +101,7 @@
     </div>
   </div>
 
-  <div class="quitButton" *ngIf="isGameShow">
+  <div class="quitButton" *ngIf="!isConnexionShow">
     <button type="submit" class="buttonMenu" (click)="deconnexion()">Quit The Game</button>
   </div>
 </div>

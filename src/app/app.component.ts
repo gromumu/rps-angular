@@ -24,7 +24,6 @@ export class AppComponent {
 
   /** DISPLAY DIV */
   isConnexionShow: boolean = true;
-  isGameShow: boolean;
 
 
   connexion(playerName)
@@ -34,7 +33,6 @@ export class AppComponent {
 
     /** HIDDEN & SHOW DIV */
     this.isConnexionShow = false;
-    this.isGameShow = true;
   }
 
 
@@ -61,7 +59,6 @@ export class AppComponent {
 
     /** HIDDEN & SHOW DIV */
     this.isConnexionShow = true;
-    this.isGameShow = false;
   }
 
 
